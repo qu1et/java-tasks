@@ -33,6 +33,7 @@ public class IsPrefixSuffix {
         return str.startsWith(sub);
     }
 
+    /* Check is it suffix */
     public static boolean isSuffix(String str, String substr) {
         String sub = substr.replace("-", "");
 
