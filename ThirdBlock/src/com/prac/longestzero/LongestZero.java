@@ -1,7 +1,6 @@
 package com.prac.longestzero;
 
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class LongestZero {
     public static void main(String[] args) {
