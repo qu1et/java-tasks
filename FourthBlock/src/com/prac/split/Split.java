@@ -7,7 +7,7 @@ public class Split {
         Scanner scanner = new Scanner(System.in);
 
         /* Read a string */
-        System.out.println("Enter sequence of brackets");
+        System.out.println("Enter sequence of brackets:");
         String inputStr = scanner.nextLine();
 
         /* Return the result */
