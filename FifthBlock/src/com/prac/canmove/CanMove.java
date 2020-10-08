@@ -32,36 +32,21 @@ public class CanMove {
         }
 
         switch (shape) {
-            case "Pawn":
-            case "Пешка":
-                res = stCol == destCol && Math.abs(stNum - destNum) == 1;
-                break;
-            case "Knight":
-            case "Конь":
-                res = Math.abs(stCol - destCol) == 1 && Math.abs(stNum - destNum) == 2;
-                break;
-            case "Bishop":
-            case "Слон":
-                res = Math.abs(stCol - destCol) == Math.abs(stNum - destNum);
-                break;
-            case "Rook":
-            case "Ладья":
-                res = stCol == destCol || stNum == destNum;
-                break;
-            case "Queen":
-            case "Ферзь":
+            case "Pawn", "Пешка" -> res = stCol == destCol && Math.abs(stNum - destNum) == 1;
+            case "Knight", "Конь" -> res = Math.abs(stCol - destCol) == 1 && Math.abs(stNum - destNum) == 2;
+            case "Bishop", "Слон" -> res = Math.abs(stCol - destCol) == Math.abs(stNum - destNum);
+            case "Rook", "Ладья" -> res = stCol == destCol || stNum == destNum;
+            case "Queen", "Ферзь" -> {
                 int dx = Math.abs(stNum - destNum);
                 int dy = Math.abs(stCol - destCol);
                 res = (dx == dy || dx == 0 || dy == 0);
-                break;
-            case "King":
-            case "Король":
+            }
+            case "King", "Король" -> {
                 int ddx = Math.abs(stNum - destNum);
                 int ddy = Math.abs(stCol - destCol);
                 res = (Math.abs(ddx - ddy) <= 1);
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + shape);
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + shape);
         }
 
         return res;
