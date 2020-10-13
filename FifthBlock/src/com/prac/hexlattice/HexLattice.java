@@ -29,14 +29,13 @@ public class HexLattice {
 
         int i = (int)n;
         StringBuilder upperPart = new StringBuilder();
-        int k = i - 1;
 
-        for(int up = 0; up < i; up++)
+        for(int up = 0; up < (int)n; up++)
         {
-            upperPart.append(" ".repeat(i - up));
-            upperPart.append("* ".repeat(k + 1));
-            upperPart.append(" ".repeat(i - up - 1));
-            k++;
+            upperPart.append(" ".repeat((int)n - up));
+            upperPart.append("* ".repeat(i));
+            upperPart.append(" ".repeat((int)n - up - 1));
+            i++;
             upperPart.append("/n");
         }
 
