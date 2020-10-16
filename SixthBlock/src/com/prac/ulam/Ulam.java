@@ -3,7 +3,7 @@ package com.prac.ulam;
 import java.util.*;
 
 public class Ulam {
-    static int MAX = 2000;
+    static int MAX = 20000;
     static Vector<Integer> arr = new Vector<Integer>();
 
     public static void main(String[] args) {
@@ -20,29 +20,29 @@ public class Ulam {
     }
 
     public static void ulam() {
+        Set<Integer> s = new HashSet<Integer>();
         arr.add(1);
+        s.add(1);
+
         arr.add(2);
+        s.add(2);
 
         for (int i = 3; i < MAX; i++) {
             int count = 0;
 
-            for (int j = 0; j < arr.size(); j++) {
-                for (int k = j + 1; k < arr.size(); k++) {
-                    if (arr.get(j) + arr.get(k) == i) {
-                        count++;
-                    }
-
-                    if (count > 1) {
-                        break;
-                    }
+            for (Integer integer : arr) {
+                if (s.contains(i - integer) && integer != (i - integer)) {
+                    count++;
                 }
-                if (count > 1) {
+
+                if (count > 2) {
                     break;
                 }
             }
 
-            if (count == 1) {
+            if (count == 2) {
                 arr.add(i);
+                s.add(i);
             }
         }
     }
